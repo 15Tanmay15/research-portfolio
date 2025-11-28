@@ -1,7 +1,14 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "rootDirectory": "research-portfolio"
+  "builds": [
+    {
+      "src": "research-portfolio/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "research-portfolio/$1"
+    }
+  ]
 }

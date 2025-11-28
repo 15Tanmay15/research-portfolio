@@ -38,10 +38,10 @@ export default function Header() {
           : 'bg-white/50 backdrop-blur-sm dark:bg-gray-900/50'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 lg:px-8 lg:py-4" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="p-2 transition-transform hover:scale-105">
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+          <Link href="/" className="p-1 transition-transform hover:scale-105">
+            <span className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
               Research Portfolio
             </span>
           </Link>
@@ -86,26 +86,26 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-40 bg-black/50" onClick={() => setMobileMenuOpen(false)} />
       )}
-      <div className={`lg:hidden fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl transition-transform duration-300 ${
+      <div className={`lg:hidden fixed top-0 right-0 h-full w-full sm:w-80 bg-white dark:bg-gray-900 shadow-xl transition-transform duration-300 ${
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-8">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
-                TG
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-6">
+            <Link href="/" className="p-1">
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                Research Portfolio
               </span>
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="rounded-md p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (

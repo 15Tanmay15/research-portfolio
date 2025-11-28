@@ -84,9 +84,9 @@ export default function Header() {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-black/50" onClick={() => setMobileMenuOpen(false)} />
+        <div className="lg:hidden fixed inset-0 z-30 bg-black/50" onClick={() => setMobileMenuOpen(false)} />
       )}
-      <div className={`lg:hidden fixed top-0 right-0 h-full w-full sm:w-80 bg-white dark:bg-gray-900 shadow-xl transition-transform duration-300 ${
+      <div className={`lg:hidden fixed top-0 right-0 h-screen w-full sm:w-80 bg-white dark:bg-gray-900 shadow-2xl transition-transform duration-300 z-40 ${
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="p-4">

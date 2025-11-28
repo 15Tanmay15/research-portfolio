@@ -1,6 +1,7 @@
 {
-  "buildCommand": "cd research-portfolio && npm run build",
-  "installCommand": "cd research-portfolio && npm install",
-  "outputDirectory": "research-portfolio/.next",
-  "framework": "nextjs"
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "rootDirectory": "research-portfolio"
 }

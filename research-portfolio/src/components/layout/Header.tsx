@@ -82,30 +82,35 @@ export default function Header() {
         </div>
       </nav>
       
-      {/* Mobile menu */}
+      {/* Mobile menu backdrop */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-30 bg-black/50" onClick={() => setMobileMenuOpen(false)} />
+        <div 
+          className="lg:hidden fixed inset-0 z-30 bg-black/50" 
+          onClick={() => setMobileMenuOpen(false)}
+        />
       )}
-      <div className={`lg:hidden fixed top-0 right-0 h-screen w-full sm:w-80 bg-white dark:bg-gray-900 shadow-2xl transition-transform duration-300 z-40 ${
-        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        <div className="p-4">
-          <div className="flex items-center justify-between mb-6">
-            <Link href="/" className="p-1">
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
-                Research Portfolio
-              </span>
-            </Link>
-            <button
-              type="button"
-              className="rounded-md p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+      
+      {/* Mobile menu drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed top-0 right-0 h-screen w-full sm:w-80 bg-white dark:bg-gray-900 shadow-2xl z-40 overflow-y-auto">
+          <div className="p-4 sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="p-1" onClick={() => setMobileMenuOpen(false)}>
+                <span className="text-xl font-bold text-gray-900 dark:text-white">
+                  Research Portfolio
+                </span>
+              </Link>
+              <button
+                type="button"
+                className="rounded-md p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
           </div>
-          <div className="space-y-1">
+          <div className="p-4 space-y-1">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -125,7 +130,7 @@ export default function Header() {
             })}
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

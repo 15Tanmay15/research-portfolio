@@ -1,36 +1,23 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 
 // Simple Card component without compound components
 export function Card({
   children,
   className = '',
-  hoverEffect = true,
   ...props
 }: {
   children: ReactNode;
   className?: string;
-  hoverEffect?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <motion.div
-      className={`bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col h-full ${className}`}
-      whileHover={
-        hoverEffect
-          ? {
-              y: -4,
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-              transition: { duration: 0.3, ease: 'easeOut' }
-            }
-          : {}
-      }
-      transition={{ duration: 0.2 }}
+    <div
+      className={`bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col h-full transition-all duration-300 ${className}`}
       {...props}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
